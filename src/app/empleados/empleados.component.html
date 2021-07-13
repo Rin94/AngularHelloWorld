@@ -1,0 +1,34 @@
+<h1 style="text-align: center">Empleados de la empresa</h1>
+<app-empleado></app-empleado>
+<app-extras></app-extras>
+<div style="color: white; background-color: black; margin: 20px; padding: 20px; border-radius: 20px;">
+  <p>Nombre del empleado: {{empleado.getNombre()}}</p>
+  <p>Apellido del empleado: {{empleado.getApellido()}}</p>
+  <p>Edad del empleado: {{empleado.getEdad()<18? "Puberto": "Chavo Ruco"}}</p>
+  <p>Empresa del empleado: {{empresa.value}}</p>
+  <!--<p>Extras del empleado: {{extras.value}}</p>-->
+  <p>Extras del empleado: {{extras}}
+</div>
+
+<div style="color: white; background-color: black; margin: 20px; padding: 20px; border-radius: 20px;" >
+  Introduce la empresa: <input type="text" #empresa/>
+  <br/>
+ <!-- Introduce los extras: <input type="text" #extras (keyup)="0" [disabled]="habilitacionCuadro"/> -->
+  <!--Introduce los extras: <input type="text" (input)="cambiarExtras($event)" > -->
+  Introduce los extras: <input type="text" [(ngModel)]="extras" >
+
+  <br/>
+  <input id="registro" type="checkbox" [checked]="usRegistrado" (click)="setTextRegistro($event,'Julian')">
+  {{getRegistroUsuario()}}
+  <br/>
+
+  Registrado<input  type="radio"value="si" name="nRegistro"  (click)="setTextRegistro($event,'Registrado')">
+  No Registrado<input  type="radio" value="no" name="nRegistro" (click)="setTextRegistro($event,'No Registrado')">
+
+
+  <input  type="button" value="Dale!" (click)="llamaEmpresa(empresa.value)"/>
+</div>
+
+{{textRegistro}}
+
+
